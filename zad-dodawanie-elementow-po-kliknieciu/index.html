@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            display: block;
+            margin: 10px auto;
+        }
+
+        div {
+            width: 30px;
+            height: 30px;
+            background-color: aqua;
+            margin: 5px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border: 2px solid black;
+        }
+
+        .circle {
+            background-color: white;
+            border-radius: 50%;
+            color: black;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <button>KLIKNIJ</button>
+    <script>
+        //pobieram element z dom - ze strony internetowej
+        //zapisuje w zmiennej stalej by moc sie do niego odwolac
+        const btn = document.querySelector('button')
+        //tworze zmienna number, ktora bedzie licznikiem
+        let number = 1;
+
+        //tworze funkcje, ktora tworzy diva, za kazdym kliknieciem
+        //dodaje ja do do body dokumentu, na koncu znacznika
+        //zawartosc diva podmieniam na zmienna number
+        //number za kazdym wywolaniem jest zwiekszany
+        //tworze instrukcje warunkowa if by sprawdzic czy number jest piatym elementem
+        //na przycisku btn uzywam addEventListnera, ktory uruchamia za kazdym
+        //kliknieciem funkcje addElement
+        const addElement = function () {
+
+            const div = document.createElement('div');
+
+            if (number % 5 === 0) {
+                // div.setAttribute('class', 'circle')
+                div.classList.add('circle')
+
+            }
+            document.body.appendChild(div)
+            div.textContent = number;
+            number++;
+
+
+        }
+
+
+        btn.addEventListener('click', addElement)
+    </script>
+</body>
+
+</html>
